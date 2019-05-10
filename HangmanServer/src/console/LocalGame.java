@@ -8,6 +8,7 @@
 package console;
 
 import hangman.ArtificialPlayer;
+import hangman.Game;
 import hangman.Hangman;
 import hangman.Player;
 
@@ -25,8 +26,9 @@ public class LocalGame {
      */
     public static void main(String[] args) {
         Hangman game = new Hangman();
-        Player player = new LocalPlayer();
+        //Player player = new LocalPlayer();
         // Player player = new ArtificialPlayer();
-        game.playGame(player);
+        //game.playGame(player);
+        //System.out.println();
     }
 }

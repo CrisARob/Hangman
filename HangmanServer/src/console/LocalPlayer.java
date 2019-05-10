@@ -10,25 +10,47 @@ package console;
 import hangman.Player;
 import hangman.Game;
 
-import java.io.BufferedReader;
-import java.io.Console;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
+import java.net.ServerSocket;
+import java.net.Socket;
 
 /**
  * Manage a player playing with the terminal.
  * 
  * @author Claudio Cusano <claudio.cusano@unipv.it>
  */
+/*
 public class LocalPlayer extends Player {
     
     BufferedReader console;
+    ServerSocket  server=new ServerSocket(6789);
+    Socket socketClient=server.accept();
+
         
     /**
      * Constructor.
      */
+/*
     public LocalPlayer() {
-        console = new BufferedReader(new InputStreamReader(System.in));
+        console = new BufferedReader(new InputStreamReader(socketClient.getInputStream()));
+    }
+    public Socket waiting(){
+        try{
+            System.out.println("[0]- Inizializzo il server...");
+            server=new ServerSocket(porta);// inizializza il servizio
+            System.out.println("[1]-Server pronto,in ascolto sulla porta: "+porta);
+            // mi metto in ascolto sulla porta
+            socketClient=server.accept();
+            System.out.println("[2]-Connessione stabilita con un client");
+            // evitiamo connessioni multiple
+            server.close();
+            in= new BufferedReader(new InputStreamReader(socketClient.getInputStream()));
+            out=new DataOutputStream(socketClient.getOutputStream());
+        }
+        catch(IOException e){
+            System.err.println(e.getMessage());
+        }
+        return socketClient;
     }
     
     @Override
@@ -80,6 +102,7 @@ public class LocalPlayer extends Player {
      * @param game
      * @return
      */
+/*
     @Override
     public char chooseLetter(Game game) {
         for (;;) {
@@ -98,3 +121,4 @@ public class LocalPlayer extends Player {
         }
     }
 }
+*/
